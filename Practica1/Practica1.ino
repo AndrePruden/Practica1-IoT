@@ -40,7 +40,7 @@ void loop() {
     Serial.println(" cm");
   }
   else{
-    Serial.print("Distancia mayor a 300 cm");
+    Serial.print("Distancia mayor a 300 cm\n");
   }
 
   if (distance < 30) {
