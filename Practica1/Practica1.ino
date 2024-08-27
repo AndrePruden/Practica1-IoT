@@ -55,7 +55,7 @@ void loop() {
     led_rojo.off();
     led_blanco.off();
   } 
-  else if (distance >= 100 && distance < 200) {
+  else if (distance >= 100 && distance < 150) {
     led_blanco.set_interval(500);
     led_blanco.blink();
     led_rojo.off();
