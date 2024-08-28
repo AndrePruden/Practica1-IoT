@@ -2,19 +2,17 @@
 /*
 trig -> G17
 echo -> G16
-Led Rojo -> G2
-Led Verde -> G0
-Led Blanco -> G4
+Red LED -> G2
+Green LED -> G0
+White LED -> G4
 */
-
 
 const int trig_pin = 17; // G17
 const int echo_pin = 16; // G16
 
-
-led led_rojo(2);   // G2
-led led_verde(0);  // G0
-led led_blanco(4); // G4
+led red_led(2);    // G2
+led green_led(0);  // G0
+led white_led(4);  // G4
 
 void setup() {
   pinMode(trig_pin, OUTPUT);
@@ -35,35 +33,35 @@ void loop() {
   int distance = duration * 0.034 / 2;
 
   if(distance < 300){
-    Serial.print("Distancia: ");
+    Serial.print("Distance: ");
     Serial.print(distance);
     Serial.println(" cm");
   }
   else{
-    Serial.print("Distancia mayor a 300 cm\n");
+    Serial.print("Distance greater than 300 cm\n");
   }
 
   if (distance < 30) {
-    led_rojo.set_interval(100);
-    led_rojo.blink();
-    led_verde.off();
-    led_blanco.off();
+    red_led.set_interval(100);
+    red_led.blink();
+    green_led.off();
+    white_led.off();
   } 
   else if (distance >= 30 && distance < 100) {
-    led_verde.set_interval(100);
-    led_verde.blink();
-    led_rojo.off();
-    led_blanco.off();
+    green_led.set_interval(100);
+    green_led.blink();
+    red_led.off();
+    white_led.off();
   } 
   else if (distance >= 100 && distance < 150) {
-    led_blanco.set_interval(500);
-    led_blanco.blink();
-    led_rojo.off();
-    led_verde.off();
+    white_led.set_interval(500);
+    white_led.blink();
+    red_led.off();
+    green_led.off();
   } 
   else {
-    led_rojo.on();
-    led_verde.on();
-    led_blanco.on();
+    red_led.on();
+    green_led.on();
+    white_led.on();
   }
 }
